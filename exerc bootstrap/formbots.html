@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+</head>
+<body class="container pt-5">
+    <form action="mailto:nome@email.com.br" method="post" enctype="text/plain">
+        <h1>Exemplo de Formulário</h1>
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <p>
+                <label for="iusu" class="form-label">Usuario: </label>
+                <input type="text" class="form-control" name="usu" id="iusu" required minlength="5" maxlength="30" placeholder="Nome do usuário">
+            </p>
+            <p>
+                <label for="isen">Senha: </label>
+                <input type="password" name="sen" id="isen" class="form-control" required minlength="8" maxlength="20" placeholder="Digite a senha" >
+            </p>
+
+            <p>
+                <label for="iemail"> E-mail:</label>
+                <input type="email" name="email" id="iemail" required class="form-control"><br>
+               <br> <textarea name="email" id="iemail" class="form-control" cols="30" rows="10"> </textarea>
+            <p>
+                <label for="itel">Telefone:</label>
+                <input type="tel" name="tel" id="itel" class="form-control" required placeholder="(xx)xxxxx-xxxx">
+            </p> 
+            <p>
+                <label for="iest">Estado:</label>
+                <select name="estado" id="iest" class="form-select">
+
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="PR">Parana</option>
+                </select>
+            </p> 
+        </fieldset>
+        <fieldset>
+            <legend>Sexo</legend>
+            <input type="radio" name="sexo" id="isxmas" value="M" required class="form-check-input"> <label for="isxmas" > Masculino</label>
+            <input type="radio" name="sexo" id="isxfem" value="F" required class="form-check-input"> <label for="isxfem"> Feminino</label>
+        </fieldset>
+        <fieldset>
+            <legend>Faculdade</legend>
+            <input type="checkbox" name="Sistemas" id="isistemas" class="form-check-input"> <label for="isistemas">Sistemas da informação</label><br>
+            <input type="checkbox" name="edf" id="iedf" class="form-check-input"> <label for="iedf">Educação física</label><br>
+            <input type="checkbox" name="dir" id="idir" class="form-check-input"> <label for="idir">Direito</label><br>
+            <input type="checkbox" name="psic" id="ipsic" class="form-check-input"> <label for="ipsic">Psicologia</label><br>
+        </fieldset> 
+        <p>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="reset" class="btn btn-primary">Limpar</button>
+        </p>
+    </form>
+  
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
