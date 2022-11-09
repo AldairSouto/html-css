@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+    <style>
+        html {
+            background: rgb(53, 52, 52);
+            color: white;
+        }
+        * {
+
+            box-sizing: border-box;
+        }
+        html, body, input, button {
+            padding: 0;
+            margin: 0;
+        }
+        body > div {
+            width: 100vw;
+            
+        }
+        header {
+            background: rgb(247, 165, 13);
+            padding: 12px;
+            width: 100%;
+            text-align: center;
+        }
+        header div {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            height: 36px;
+        }
+        input {
+            padding: 0 12px;
+        }
+        h1 {
+            color: black;
+        }
+        .concluido {
+            text-decoration: line-through;
+        } 
+        .concluido::before {
+            content: url("data:image/svg+xml; utf8, <svg style='width:24px;height:24px' viewBox='0 0 24 24'>path fill='white' d='M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z' /></svg>");
+        }
+        .tarefa {
+            display: grid;
+            grid-template-columns: 1fr 40px;
+            height: 48px;
+            font-size: 24px;
+            padding: 4px 0;
+        }
+        main {
+            width: 100%;
+            padding: 12px;
+            display: flex;
+            flex-flow: column;
+        }
+        .tarefa:hover {
+            cursor: pointer;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <header>
+            <h1>Lista de Tarefas</h1>
+            <div>
+                <input type="text" name="tarefa">
+                <button id="adicionar">Adicionar</button>
+            </div>
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <script>
+        let main = document.querySelector("main")
+        let input = document.querySelector("input")
+        let adicionarBtn = document.getElementById("adicionar")
+        adicionarBtn.addEventListener("click", () => {
+   
+            let divTarefa = document.createElement("div")
+            divTarefa.classList.add("tarefa")
+            let removeBtn = document.createElement("button")
+            removeBtn.addEventListener("click", () => {
+                main.removeChild(divTarefa)
+            })
+
+            let divNome = document.createElement("div")
+            divNome.innerText = input.value
+            divNome.addEventListener("click", () => {
+                divNome.classList.toggle("concluido")
+            }) 
+            divTarefa.appendChild(divNome)
+            divTarefa.appendChild(removeBtn)
+            removeBtn.innerHTML = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                 <path fill="currentColor" d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19Z" />
+                 </svg>`
+            main.appendChild(divTarefa)
+            
+            
+        })
+
+
+    </script>
+
+</body>
+
+</html>
